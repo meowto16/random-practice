@@ -12,17 +12,12 @@ import {
   ViewWidth
 } from '@vkontakte/vkui'
 import * as yup from 'yup'
+import './config/yup.config'
 
 import './App.css'
 
 import { Form } from './components/Forms/Form'
 import { Input } from './components/Forms/Input'
-
-yup.setLocale({
-  mixed: {
-    required: 'Поле обязательно для заполнения',
-  }
-})
 
 const validationSchema = yup.object({
   user: yup.object({
