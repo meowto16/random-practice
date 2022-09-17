@@ -18,6 +18,12 @@ import './App.css'
 import { Form } from './components/Forms/Form'
 import { Input } from './components/Forms/Input'
 
+yup.setLocale({
+  mixed: {
+    required: 'Поле обязательно для заполнения',
+  }
+})
+
 const validationSchema = yup.object({
   user: yup.object({
     firstname: yup.string().required(),
