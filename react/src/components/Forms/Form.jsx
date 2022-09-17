@@ -1,12 +1,15 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import { FormLayout } from '@vkontakte/vkui'
 import { FormProvider, useForm } from 'react-hook-form'
 
-export const Form = ({ children, onSubmit }) => {
-  const methods = useForm()
+export const Form = ({ children, onSubmit, validationSchema }) => {
+  const form = useForm({
+    resolver: yupResolver(validationSchema),
+  })
 
   return (
-    <FormProvider {...methods}>
-      <FormLayout onSubmit={methods.handleSubmit(onSubmit)}>
+    <FormProvider {...form}>
+      <FormLayout onSubmit={form.handleSubmit(onSubmit)}>
         {children}
       </FormLayout>
     </FormProvider>
