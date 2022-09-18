@@ -19,6 +19,7 @@ import './App.css'
 import { Form } from './components/Forms/Form'
 import { Input } from './components/Forms/Input'
 import { Select } from './components/Forms/Select'
+import { Textarea } from './components/Forms/Textarea'
 
 const validationSchema = yup.object({
   user: yup.object({
@@ -26,6 +27,7 @@ const validationSchema = yup.object({
     lastname: yup.string().required(),
     age: yup.number().integer().positive().max(150).required(),
     country: yup.string().required(),
+    biography: yup.string().required(),
   }),
 })
 
@@ -52,6 +54,7 @@ function App() {
                     { label: 'Россия', value: 'russia' },
                     { label: 'Германия', value: 'germany' },
                   ]} />
+                  <Textarea label="Расскажите о себе" name="user.biography" placeholder="Все что угодно" />
                   <Div>
                     <Button type="submit" size="m">Отправить</Button>
                   </Div>
