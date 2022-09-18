@@ -1,5 +1,6 @@
-import { useFormContext } from 'react-hook-form'
-import { FormItem, Checkbox as VKCheckbox } from '@vkontakte/vkui'
+import { Checkbox as VKCheckbox } from '@vkontakte/vkui'
+
+import { FormItem } from './FormItem'
 
 export const Checkbox = ({
   FormItemProps,
@@ -8,29 +9,16 @@ export const Checkbox = ({
   label,
   description,
   disabled,
-}) => {
-  const { register, formState, getFieldState } = useFormContext()
-
-  const { onBlur, onChange, name: registerName, ref }  = register(name);
-
-  const field = getFieldState(name, formState)
-
-  return (
-    <FormItem
-      {...FormItemProps}
-      top={label || FormItemProps?.top}
-      bottom={field.error ? field.error.message : FormItemProps?.bottom}
-      status={Boolean(field.error) ? 'error' : 'default'}
-    >
-      <VKCheckbox
-        {...CheckboxProps}
-        disabled={disabled}
-        description={description}
-        onBlur={onBlur}
-        onChange={onChange}
-        name={registerName}
-        getRef={ref}
-      />
-    </FormItem>
-  )
-}
+}) => (
+  <FormItem
+    {...FormItemProps}
+    name={name}
+    label={label}
+  >
+    <VKCheckbox
+      {...CheckboxProps}
+      disabled={disabled}
+      description={description}
+    />
+  </FormItem>
+)

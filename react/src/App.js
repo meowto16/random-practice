@@ -25,11 +25,12 @@ import { Textarea } from './components/Forms/Textarea'
 
 const validationSchema = yup.object({
   user: yup.object({
-    // firstname: yup.string().required(),
-    // lastname: yup.string().required(),
-    // age: yup.number().integer().positive().max(150).required(),
-    // country: yup.string().required(),
-    // biography: yup.string().required(),
+    firstname: yup.string().required(),
+    lastname: yup.string().required(),
+    age: yup.number().integer().positive().max(150).required(),
+    sex: yup.string().oneOf(['man', 'woman']),
+    country: yup.string().required(),
+    biography: yup.string().required(),
     religion: yup.boolean().oneOf([true], 'А надо быть верующим...')
   }),
 })

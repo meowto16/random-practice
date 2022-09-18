@@ -1,30 +1,18 @@
-import { FormItem, Select as VKSelect } from '@vkontakte/vkui'
-import { useFormContext } from 'react-hook-form'
+import { Select as VKSelect } from '@vkontakte/vkui'
 
-export const Select = ({ FormItemProps, SelectProps, name, label, placeholder, options }) => {
-  const { register, formState, getFieldState } = useFormContext()
+import { FormItem } from './FormItem'
 
-  const { onBlur, onChange, name: registerName, ref }  = register(name);
-
-  const field = getFieldState(name, formState)
-
-  return (
-    <FormItem
-      {...FormItemProps}
-      top={label || FormItemProps?.top}
-      bottom={field.error ? field.error.message : FormItemProps?.bottom}
-      status={Boolean(field.error) ? 'error' : 'default'}
-    >
-      <VKSelect
-        {...SelectProps}
-        aria-label={label}
-        name={registerName}
-        placeholder={placeholder}
-        onBlur={onBlur}
-        onChange={onChange}
-        getRef={ref}
-        options={options}
-      />
-    </FormItem>
-  )
-}
+export const Select = ({ FormItemProps, SelectProps, name, label, placeholder, options }) => (
+  <FormItem
+    {...FormItemProps}
+    name={name}
+    label={label}
+  >
+    <VKSelect
+      {...SelectProps}
+      aria-label={label}
+      placeholder={placeholder}
+      options={options}
+    />
+  </FormItem>
+)
