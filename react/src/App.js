@@ -28,7 +28,7 @@ const validationSchema = yup.object({
     firstname: yup.string().required(),
     lastname: yup.string().required(),
     age: yup.number().integer().positive().max(150).required(),
-    sex: yup.string().oneOf(['man', 'woman']),
+    sex: yup.string().required().oneOf(['man', 'woman']),
     country: yup.string().required(),
     biography: yup.string().required(),
     religion: yup.boolean().oneOf([true], 'А надо быть верующим...')
