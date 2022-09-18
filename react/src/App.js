@@ -15,6 +15,7 @@ import * as yup from 'yup'
 import './config/yup.config'
 
 import './App.css'
+import { Checkbox } from './components/Forms/Checkbox'
 
 import { Form } from './components/Forms/Form'
 import { Input } from './components/Forms/Input'
@@ -29,6 +30,7 @@ const validationSchema = yup.object({
     // age: yup.number().integer().positive().max(150).required(),
     // country: yup.string().required(),
     // biography: yup.string().required(),
+    religion: yup.boolean().oneOf([true], 'А надо быть верующим...')
   }),
 })
 
@@ -60,6 +62,7 @@ function App() {
                     { label: 'Мужской', value: 'man' },
                     { label: 'Женский', value: 'woman' }
                   ]} />
+                  <Checkbox name="user.religion" description="Вы верующий?" disabled />
                   <Div>
                     <Button type="submit" size="m">Отправить</Button>
                   </Div>
