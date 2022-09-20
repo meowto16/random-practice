@@ -5,7 +5,6 @@
   "dependencies": {
     "@hookform/resolvers": "^2.9.8",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@vkontakte/icons": "^1.192.0",
     "@vkontakte/vk-bridge": "^2.7.0",
@@ -40,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.4.0"
   }
 }
