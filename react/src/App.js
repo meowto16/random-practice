@@ -7,7 +7,7 @@ import {
   View,
   ViewWidth
 } from '@vkontakte/vkui'
-import './config/yup.config'
+import './modules/forms/config/yup.config'
 
 import { App as FormsApp } from './modules/forms/App'
 import { App as JSONPlaceholderApp } from './modules/jsonplaceholder/App'
