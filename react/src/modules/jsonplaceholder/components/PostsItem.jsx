@@ -3,6 +3,10 @@ import React from 'react'
 
 export const PostsItem = ({ title, desc }) => {
   return (
-    <Group header={<Header>{title}</Header>} description={<Caption>{desc}</Caption>} />
+    <Group
+      role="article"
+      header={<Header>{title}</Header>}
+      description={<Caption>{desc}</Caption>}
+    />
   )
 }
