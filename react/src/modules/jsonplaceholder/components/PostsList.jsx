@@ -21,7 +21,7 @@ export const PostsList = () => {
   if (isLoading) return 'Loading'
   if (isError) return 'Fetch error'
 
-  if (!posts.length) return 'No posts'
+  if (!posts?.length) return 'No posts'
 
   return (
     <Div>
