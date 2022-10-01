@@ -21,7 +21,7 @@ function App() {
     <AppRoot>
       <SplitLayout header={<PanelHeader separator={false} />}>
         <SplitCol spaced={viewWidth && viewWidth > ViewWidth.MOBILE}>
-          <View activePanel="json-placeholder">
+          <View activePanel="forms">
             <FormsApp id="forms" />
             <JSONPlaceholderApp id="json-placeholder" />
           </View>

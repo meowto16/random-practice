@@ -1,3 +1,4 @@
+import { setLocale } from 'yup'
 import * as yup from 'yup'
 import { Panel, PanelHeader, Group, Div, Button } from '@vkontakte/vkui'
 
@@ -8,12 +9,16 @@ import { RadioGroup } from './components/Forms/RadioGroup'
 import { Select } from './components/Forms/Select'
 import { Textarea } from './components/Forms/Textarea'
 
+import ru from './config/yup.config'
+
+setLocale(ru)
+
 const validationSchema = yup.object({
   user: yup.object({
-    firstname: yup.string().required(),
+    firstname: yup.string().required('Введите имя'),
     lastname: yup.string().required(),
     age: yup.number().integer().positive().max(150).required(),
-    sex: yup.string().required().oneOf(['man', 'woman']),
+    sex: yup.string().oneOf(['man', 'woman'], 'Выберите пол. Мужской или женский').nullable(),
     country: yup.string().required(),
     biography: yup.string().required(),
     religion: yup.boolean().oneOf([true], 'А надо быть верующим...')
