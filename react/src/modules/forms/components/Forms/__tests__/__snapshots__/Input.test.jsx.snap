@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input (Form component) same as snapshot 1`] = `
+<form
+  name="form"
+>
+  <div
+    class="vkuiFormItem vkuiFormItem--android FormItem FormItem--android vkuiFormItem--default FormItem--default vkuiFormItem--sizeY-regular FormItem--sizeY-regular vkuiFormItem--withTop FormItem--withTop"
+  >
+    <h5
+      class="vkuiFormItem__top FormItem__top vkuiSubhead Subhead vkuiSubhead--sizeY-regular Subhead--sizeY-regular"
+    >
+      Имя
+    </h5>
+    <div
+      class="vkuiInput Input vkuiInput--sizeY-regular Input--sizeY-regular vkuiFormField FormField vkuiFormField--default FormField--default vkuiFormField--status-default FormField--status-default vkuiFormField--sizeY-regular FormField--sizeY-regular"
+      role="presentation"
+    >
+      <input
+        aria-label="Имя"
+        class="vkuiInput__el Input__el"
+        label="Имя"
+        name="firstname"
+        type="text"
+      />
+      <div
+        class="vkuiFormField__border FormField__border"
+        role="presentation"
+      />
+    </div>
+  </div>
+  <button
+    type="submit"
+  >
+    Отправить
+  </button>
+</form>
+`;
