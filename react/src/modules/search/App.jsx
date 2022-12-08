@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react'
 import { Panel, PanelHeader, Select } from '@vkontakte/vkui'
 
-import { options as optionsMock, searchTree } from './mock/data'
+import { options as optionsMock } from './mock/data'
+import { binaryFilterBySubstring } from './util/binaryFilterBySubstring'
 
 const DEFAULT_OPTIONS = optionsMock.slice(0, 50)
 
@@ -16,10 +17,8 @@ export const App = ({ id }) => {
       return true
     }
 
-    const tree = value.toLowerCase().split('').reduce((acc, char) => acc[char] || {}, searchTree)
-    const keys = (tree?._keys || []).slice(0, 50)
-
-    setOptions(keys.map(idx => optionsMock[idx]))
+    const filtered = binaryFilterBySubstring(optionsMock, value, 50, (option) => option.label)
+    setOptions(filtered)
   }, [])
 
   return (
@@ -31,6 +30,7 @@ export const App = ({ id }) => {
         searchable
         filterFn={() => true}
         onInput={handleSearch}
+        onFocus={() => setOptions(DEFAULT_OPTIONS)}
       />
     </Panel>
   )
