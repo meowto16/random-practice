@@ -1,6 +1,6 @@
 import rows from './rows.json'
 
-const ROWS_COUNT = 100_000
+const ROWS_COUNT = 3_000
 
 export const options = rows.data.slice(0, ROWS_COUNT)
   .map((row) => ({

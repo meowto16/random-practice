@@ -2,9 +2,9 @@ import { useCallback, useState } from 'react'
 import { Panel, PanelHeader, Select } from '@vkontakte/vkui'
 
 import { options as optionsMock } from './mock/data'
-import { binaryFilterBySubstring } from './util/binaryFilterBySubstring'
 
-const DEFAULT_OPTIONS = optionsMock.slice(0, 50)
+const MAX_ITEMS = 50
+const DEFAULT_OPTIONS = optionsMock.slice(0, MAX_ITEMS)
 
 export const App = ({ id }) => {
   const [options, setOptions] = useState(DEFAULT_OPTIONS)
@@ -17,9 +17,21 @@ export const App = ({ id }) => {
       return true
     }
 
-    const filtered = binaryFilterBySubstring(optionsMock, value, 50, (option) => option.label)
-    setOptions(filtered)
+    const input = value.toLowerCase()
+    const result = []
+
+    for (let i = 0; i < optionsMock.length && result.length < MAX_ITEMS; i++) {
+      const item = optionsMock[i]
+
+      if ((item?.label || '').toLowerCase().startsWith(input)) {
+        result.push(item)
+      }
+    }
+
+    setOptions(result)
   }, [])
+
+  console.log(options)
 
   return (
     <Panel id={id}>
