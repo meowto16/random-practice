@@ -11,6 +11,7 @@ import './modules/forms/config/yup.config'
 
 import { App as FormsApp } from './modules/forms/App'
 import { App as JSONPlaceholderApp } from './modules/jsonplaceholder/App'
+import { App as SearchApp } from './modules/search/App'
 
 import './App.css'
 
@@ -21,9 +22,10 @@ function App() {
     <AppRoot>
       <SplitLayout header={<PanelHeader separator={false} />}>
         <SplitCol spaced={viewWidth && viewWidth > ViewWidth.MOBILE}>
-          <View activePanel="forms">
+          <View activePanel="search">
             <FormsApp id="forms" />
             <JSONPlaceholderApp id="json-placeholder" />
+            <SearchApp id="search" />
           </View>
         </SplitCol>
       </SplitLayout>
