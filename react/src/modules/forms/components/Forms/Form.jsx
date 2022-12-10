@@ -5,6 +5,9 @@ import { FormProvider, useForm } from 'react-hook-form'
 export const Form = ({ children, onSubmit, validationSchema }) => {
   const form = useForm({
     resolver: yupResolver(validationSchema),
+    defaultValues: {
+      'user.country': 'germany',
+    }
   })
 
   return (

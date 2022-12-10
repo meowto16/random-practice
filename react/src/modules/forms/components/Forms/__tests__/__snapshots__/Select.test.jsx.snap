@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select (Form component) same as snapshot 1`] = `
+<form
+  name="form"
+>
+  <div
+    class="vkuiFormItem vkuiFormItem--android FormItem FormItem--android vkuiFormItem--default FormItem--default vkuiFormItem--sizeY-regular FormItem--sizeY-regular vkuiFormItem--withTop FormItem--withTop"
+  >
+    <h5
+      class="vkuiFormItem__top FormItem__top vkuiSubhead Subhead vkuiSubhead--sizeY-regular Subhead--sizeY-regular"
+    >
+      Страна
+    </h5>
+    <label
+      class="vkuiCustomSelect CustomSelect"
+    >
+      <div
+        aria-hidden="true"
+        aria-label="Страна"
+        class="vkuiSelect vkuiSelect--android Select Select--android vkuiSelect--default Select--default vkuiSelect--empty Select--empty vkuiSelect--sizeX-compact Select--sizeX-compact vkuiSelect--sizeY-regular Select--sizeY-regular vkuiSelect--hasAfter Select--hasAfter vkuiFormField FormField vkuiFormField--default FormField--default vkuiFormField--status-default FormField--status-default vkuiFormField--sizeY-regular FormField--sizeY-regular"
+        label="Страна"
+        role="presentation"
+        tabindex="0"
+      >
+        <div
+          class="vkuiSelect__container Select__container"
+        >
+          <span
+            class="vkuiSelect__title Select__title vkuiHeadline vkuiHeadline--android Headline Headline--android vkuiHeadline--sizeY-regular Headline--sizeY-regular vkuiHeadline--l-1 Headline--l-1 vkuiHeadline--w-3 Headline--w-3"
+          />
+        </div>
+        <div
+          class="vkuiFormField__after FormField__after"
+          role="presentation"
+        >
+          <div
+            class=" Icon Icon--24 Icon--w-24 Icon--h-24 Icon--chevron_down_24 vkuiDropdownIcon DropdownIcon"
+            role="presentation"
+            style="width: 24px; height: 24px;"
+          >
+            <svg
+              height="24"
+              style="display: block;"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <use
+                style="fill: currentColor;"
+                xlink:href="#chevron_down_24"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="vkuiFormField__border FormField__border"
+          role="presentation"
+        />
+      </div>
+      <select
+        aria-hidden="true"
+        class="vkuiCustomSelect__control CustomSelect__control"
+        name="country"
+      >
+        <option
+          value="russia"
+        />
+        <option
+          value="ukraine"
+        />
+        <option
+          value="germany"
+        />
+        <option
+          value="france"
+        />
+      </select>
+    </label>
+  </div>
+  <button
+    type="submit"
+  >
+    Отправить
+  </button>
+</form>
+`;
