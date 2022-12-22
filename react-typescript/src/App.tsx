@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useMemo, useCallback, useState } from 'react'
+
+import { List } from './List'
 
 function App() {
+  const [counter, setCounter] = useState(0)
+  const items = useMemo(() => {
+    return Array.from({ length: 6 }, (_, i) => ({ id: i, value: Math.random() }))
+  }, []);
+
+  const handleDecrement = useCallback(() => {
+    setCounter(prev => prev - 1)
+  }, [])
+
+  const handleIncrement = useCallback(() => {
+    setCounter(prev => prev + 1)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <List items={items} />
+      <hr/>
+      <p>Count: {counter}</p>
+      <button onClick={handleDecrement}>Decrement</button>
+      <button onClick={handleIncrement}>Increment</button>
+      <hr/>
     </div>
   );
 }
