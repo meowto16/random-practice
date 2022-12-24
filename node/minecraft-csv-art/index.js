@@ -27,11 +27,19 @@ function readRows(rows) {
   const repeats = findRepeats(rows)
   const total = findBlocksTotal(rows)
 
+  const hotkeys = total
+    .slice(0,9)
+    .reduce((acc, [_, block], idx) => {
+
+      acc[block.getId()] = idx + 1
+      return acc
+    }, {})
+
   let log = [
     logTitle(),
     logImage(),
     logTotal(total),
-    logRepeats(repeats)
+    logRepeats(repeats, hotkeys)
   ].join('\n')
 
   writeLog(log)
@@ -106,18 +114,22 @@ function logTotal(total) {
   return text
 }
 
-function logRepeats(repeats) {
+function logRepeats(repeats, hotkeys = {}) {
   let text = '## Картина целиком: \n\n'
 
   repeats.reverse().forEach((row, idx) => {
     const rowOrder = idx + 1
     text += `### Строка ${rowOrder}\n`
 
-    row.forEach(([count, block], idx) => {
+    row.forEach(([count, block]) => {
       const blockName = block.getLocale('ru')
-      text += `- ${blockName}: ${count}\n`
+      const hotkey = hotkeys[block.getId()]
 
-      if (idx % 2 === 0) text += '\n'
+      const title = hotkey
+        ? `(${hotkey}) ${blockName}`
+        : blockName;
+
+      text += `- ${title}: ${count}\n`
     })
 
     text += '\n'
