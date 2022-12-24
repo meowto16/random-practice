@@ -126,10 +126,10 @@ function logRepeats(repeats, hotkeys = {}) {
       const hotkey = hotkeys[block.getId()]
 
       const title = hotkey
-        ? `(${hotkey}) ${blockName}`
-        : blockName;
+        ? `${hotkey} (${blockName}): ${count}`
+        : `${blockName}: ${count}`;
 
-      text += `- ${title}: ${count}\n`
+      text += `- ${title}\n`
     })
 
     text += '\n'
